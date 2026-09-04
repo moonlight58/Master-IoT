@@ -5,16 +5,16 @@
 #define PIN_IR_REMOTE   D3   // IR receiver OUT pin
 
 unsigned long buttonCode[10] = {
-  0x0,  
-  0x0,  // 0x45,   // should not be used since: 2 <= nbBlink >= 9
-  0x0,  // 0x46,   // should not be used since: 2 <= nbBlink >= 9 
-  0xB847FF00, 
-  0xBB44FF00, 
-  0xBF40FF00, 
-  0xBC43FF00, 
-  0xF807FF00, 
-  0xEA15FF00, 
-  0xF609FF00
+  0x0,          // 0,   // should not be used since: 2 <= nbBlink >= 9
+  0x0,          // 1,   // should not be used since: 2 <= nbBlink >= 9
+  0x0,          // 2,   // should not be used since: 2 <= nbBlink >= 9 
+  0xB847FF00,   // 3,
+  0xBB44FF00,   // 4,
+  0xBF40FF00,   // 5,
+  0xBC43FF00,   // 6,
+  0xF807FF00,   // 7,
+  0xEA15FF00,   // 8,
+  0xF609FF00    // 9,
 };
 // --------------------------------------------------------------------
 
@@ -55,11 +55,9 @@ void loop() {
     // wait 5 secs before blinking
     delay(5000);
 
-    // choose how many times to blink
     nbBlinks = random(2, 10);  // 2..9
     Serial.printf("nbBlinks = %d\n", nbBlinks);
 
-    // all blinks except the last one: 500ms ON
     for (int i = 1; i < nbBlinks; i++) {
       digitalWrite(PIN_LED, HIGH);
       delay(500);
@@ -67,7 +65,6 @@ void loop() {
       delay(500);
     }
 
-    // last blink: 1 sec ON, so the user knows the sequence ended
     digitalWrite(PIN_LED, HIGH);
     delay(1000);
     digitalWrite(PIN_LED, LOW);
@@ -97,15 +94,14 @@ void loop() {
         Serial.printf("t2 = %lu\n", t2);
         Serial.printf("final time (t2-t1): %lu ms\n", t2 - t1);
 
-        // warn the user the sequence is over
         digitalWrite(PIN_LED, HIGH);
         delay(200);
         digitalWrite(PIN_LED, LOW);
 
         state = 0;
       }
-      // wrong button (or unknown code): just keep waiting, time keeps running
 
+      // wrong button (or unknown code): just keep waiting, time keeps running
       IrReceiver.resume();  // ready to receive the next code
     }
   }
