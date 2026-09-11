@@ -19,11 +19,13 @@ $ mosquitto_sub -h localhost -t lab/topic
 > Wireshark listening for Publishers
 > **MQTT Type:** Publish Message
 > **QoS Level:** 0
+
 ![[Pasted image 20260910145341.png]]
 
 > Wireshark listening for Subscribers. 
 > **MQTT Type:** Subscriber Request
 > **QoS Level:** 0
+
 ![[Pasted image 20260910145735.png]]
 
 # Topic
