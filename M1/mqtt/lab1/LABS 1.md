@@ -9,7 +9,8 @@
 > Q1. Send a message of some topic using a publisher, afterwards start a subscriber of that topic, and finally send another message of the same topic. Does the subscriber show both messages or not?
 
 The subscriber does not show both messages if you forget about the retain flag `-r`.
-It does show both messages if i'm not dumb
+
+It does show both messages if you don't forget this flag
 
 ```bash
 $ mosquitto_pub -h localhost -r -t lab/topic -m "test"
@@ -21,14 +22,14 @@ $ mosquitto_sub -h localhost -t lab/topic
 **MQTT Type:** Publish Message
 **QoS Level:** 0
 
-![pub screen](Pasted image 20260910145341.png)
+![pub screen](M1/assets/screenshots/Pasted image 20260910145341.png)
 
 > Wireshark listening for Subscribers. 
 
 **MQTT Type:** Subscriber Request
 **QoS Level:** 0
 
-![sub screen](Pasted image 20260910145735.png)
+![sub screen](M1/assets/screenshots/Pasted image 20260910145735.png)
 
 # Topic
 
