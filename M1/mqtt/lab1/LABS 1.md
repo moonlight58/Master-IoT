@@ -22,14 +22,14 @@ $ mosquitto_sub -h localhost -t lab/topic
 **MQTT Type:** Publish Message
 **QoS Level:** 0
 
-![pub screen](M1/assets/screenshots/Pasted image 20260910145341.png)
+![pub screen](./pub.png)
 
 > Wireshark listening for Subscribers. 
 
 **MQTT Type:** Subscriber Request
 **QoS Level:** 0
 
-![sub screen](M1/assets/screenshots/Pasted image 20260910145735.png)
+![sub screen](./sub.png)
 
 # Topic
 
